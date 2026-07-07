@@ -23,7 +23,8 @@ public class Market {
             cauldronSlot = random.nextInt(SLOT_COUNT);
         }
 
-        // use Ingredient[] from his IngredientCatalog
+        // use Ingredient[] from 
+        IngredientCatalog
         Ingredient[] allIngredients = catalog.getAll();
 
         for (int i = 0; i < SLOT_COUNT; i++) {
