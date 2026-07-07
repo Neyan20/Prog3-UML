@@ -7,7 +7,6 @@ public class Player {
     private int concoctionsBrewed;
     private IngredientCatalog catalog;
 
-    
     // constructor for new game
     public Player(String name, IngredientCatalog catalog) {
         this.name = name;
