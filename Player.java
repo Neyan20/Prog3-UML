@@ -135,7 +135,6 @@ public class Player {
 
     public Ingredient claimLoginBonus() {
         loginBonusClaimed = true;
-        // getRandom() is a static method in his IngredientCatalog
         Ingredient bonus = IngredientCatalog.getRandom();
         inventory.addItem(bonus.getName(), 1);
         return bonus;
