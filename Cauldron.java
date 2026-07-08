@@ -7,11 +7,12 @@ public class Cauldron {
     }
 
     public void setDamaged(String junk) {
-        
+        usable = false;
     }
 
     public void bless() {
-
+        usable = true;
+        junkContents = null;
     }
 
     public String getVoidContents() {

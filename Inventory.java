@@ -6,19 +6,48 @@ public class Inventory {
     Map<String, Integer> bases = new HashMap<>();
 
     public void addItem(String name, int qty) {
-        
     }
 
     public boolean removeItem(String name, int qty) {
-
+        if (fruits.containsKey(name)) {
+            int currentQty = fruits.get(name);
+            if (currentQty >= qty) {
+                fruits.put(name, currentQty - qty);
+                return true;
+            } else {
+                return false;
+            }
+        } else if (bases.containsKey(name)) {
+            int currentQty = bases.get(name);
+            if (currentQty >= qty) {
+                bases.put(name, currentQty - qty);
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
     }
 
     public boolean hasItem(String name, int qty) {
-
+        if (fruits.containsKey(name) && fruits.get(name) >= qty) {
+            return true;
+        } else if (bases.containsKey(name) && bases.get(name) >= qty) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public int getQuantity(String name) {
-
+        if (fruits.containsKey(name)) {
+            return fruits.get(name);
+        } else if (bases.containsKey(name)) {
+            return bases.get(name);
+        } else {
+            return 0;
+        }
     }
 
     public Map<String, Integer> getFruits() {
@@ -30,7 +59,7 @@ public class Inventory {
     }
 
     public void display() {
-
+        
     }
 
     public void setDefaults() {

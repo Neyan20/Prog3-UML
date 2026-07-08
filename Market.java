@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Market {
     private static final int SLOT_COUNT = 8;
     private static final int CAULDRON_PRICE = 3000;
