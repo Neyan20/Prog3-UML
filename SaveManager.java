@@ -2,13 +2,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-/**
- * Handles saving and loading the game.
- * Follows the format of Sam-Paul.txt provided by the professor.
- *
- * @author [Your Names Here]
- * @version 1.0
- */
+
 public class SaveManager {
     private static final String SAVE_DIR = "saves/";
     private static final String EXTENSION = ".txt";
