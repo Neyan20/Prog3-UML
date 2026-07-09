@@ -1,13 +1,6 @@
 import java.util.ArrayList;
 import java.io.*;
 
-/**
- * Handles all the brewing stuff.
- * Recipe mode, creative mode, and loading the recipe data file.
- *
- * @author [Your Names Here]
- * @version 1.0
- */
 public class BrewingManager {
     private ArrayList<Recipe> recipeData;
     private IngredientCatalog catalog;
