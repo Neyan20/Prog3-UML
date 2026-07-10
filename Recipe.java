@@ -15,7 +15,7 @@ public class Recipe {
         this.sellValue = sellValue;
     }
 
-    public int getConcontionId() {
+    public int getConcoctionId() {
         return concoctionId;
     }
 
