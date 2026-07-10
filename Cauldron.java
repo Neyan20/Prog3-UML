@@ -24,10 +24,11 @@ public class Cauldron {
     }
 
     @Override 
-    public String toString(){
+    public String toString() {
         if (usable) {
             return "Usable";
         } else {
             return "Damaged (" + getVoidContents() + ");
         }
+}
 }
