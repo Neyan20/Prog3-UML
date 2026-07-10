@@ -52,12 +52,7 @@ public class Recipe {
 
     @Override
     public String toString() {
-        return "Recipe{" +
-                "concoctionId=" + concoctionId +
-                ", base='" + base + '\'' +
-                ", fruits=" + fruits +
-                ", resultName='" + resultName + '\'' +
-                ", sellValue=" + sellValue +
-                '}';
+        return "[" + concoctionId + "] " + resultName + " (Base: " + base + ", Fruits: " + fruits + ", Sells for: " + sellValue + ")";
+
     }
 }
