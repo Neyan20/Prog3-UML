@@ -2,6 +2,10 @@ public class Cauldron {
     private boolean usable;
     private String junkContents;
 
+    public Cauldron {
+        this.usable = true;
+    }
+    
     public boolean isUsable() {
         return usable;
     }
