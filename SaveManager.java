@@ -2,7 +2,6 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-
 public class SaveManager {
     private static final String SAVE_DIR = "saves/";
     private static final String EXTENSION = ".txt";
@@ -15,7 +14,6 @@ public class SaveManager {
     }
 
     private String getSavePath(String name) { return SAVE_DIR + name + EXTENSION; }
-
     public boolean fileExists(String name) { return new File(getSavePath(name)).exists(); }
 
     public String[] listSaves() {
@@ -33,15 +31,13 @@ public class SaveManager {
             writer.println();
             writer.println("[INVENTORY]");
 
-            Ingredient[] allFruits = catalog.getFruits();
-            for (int i = 0; i < allFruits.length; i++)
-                writer.println(allFruits[i].getName().toUpperCase() + " = " + player.getInventory().getQuantity(allFruits[i].getName()));
-            writer.println();
+            ArrayList<Ingredient> allFruits = catalog.getFruits();
+            for (int i = 0; i < allFruits.size(); i++)
+            writer.println(allFruits.get(i).getName().toUpperCase() + " = " + player.getInventory().getQuantity(allFruits.get(i).getName()));
 
-            Ingredient[] allBases = catalog.getBases();
-            for (int i = 0; i < allBases.length; i++)
-                writer.println(allBases[i].getName().toUpperCase() + " = " + player.getInventory().getQuantity(allBases[i].getName()));
-            writer.println();
+            ArrayList<Ingredient> allBases = catalog.getBases();
+            for (int i = 0; i < allBases.size(); i++)
+            writer.println(allBases.get(i).getName().toUpperCase() + " = " + player.getInventory().getQuantity(allBases .get(i).getName()));
 
             writer.println("TOTAL CAULDRONS = " + player.getCauldrons().length);
             writer.println("USABLE CAULDRONS = " + player.getUsableCauldronCount());
