@@ -1,13 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-/**
- * Main entry point and game loop for Potion Prodigy.
- * Handles the opening menu, main menu, and all feature flows.
- *
- * @author [Your Names Here]
- * @version 1.0
- */
 public class Game {
     private static final int BLESS_COST = 1000;
     private static final String RECIPE_DATA_PATH = "data/POTION_COMPENDIUM.csv";
