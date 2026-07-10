@@ -7,6 +7,14 @@ public class Recipe {
     private String resultName;
     private int sellValue;
 
+    public Recipe(int concoctionId, String base, ArrayList<String> fruits, String resultName, int sellValue) {
+        this.concoctionId = concoctionId;
+        this.base = base;
+        this.fruits = fruits;
+        this.resultName = resultName;
+        this.sellValue = sellValue;
+    }
+
     public int getConcontionId() {
         return concoctionId;
     }

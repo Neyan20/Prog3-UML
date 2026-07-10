@@ -3,6 +3,13 @@ public class MarketSlot {
     private int quantity;
     private boolean empty;
 
+    //initialize an empty market slot
+    public MarketSlot() {
+        this.ingredient = null;
+        this.quantity = 0;
+        this.empty = true;
+    }
+
     public boolean isEmpty() {
         return empty;
     }
