@@ -2,7 +2,7 @@ public class Cauldron {
     private boolean usable;
     private String junkContents;
 
-    public Cauldron {
+    public Cauldron() {
         this.usable = true;
     }
     
