@@ -22,4 +22,12 @@ public class Cauldron {
     public String getVoidContents() {
         return junkContents;
     }
+
+    @Override 
+    public String toString(){
+        if (usable) {
+            return "Usable";
+        } else {
+            return "Damaged (" + getVoidContents() + ");
+        }
 }
