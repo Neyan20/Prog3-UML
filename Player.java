@@ -135,7 +135,7 @@ public class Player {
 
     public Ingredient claimLoginBonus() {
         loginBonusClaimed = true;
-        Ingredient bonus = IngredientCatalog.getRandom();
+        Ingredient bonus = catalog.getRandom();
         inventory.addItem(bonus.getName(), 1);
         return bonus;
     }
