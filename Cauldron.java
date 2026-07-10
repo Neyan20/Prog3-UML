@@ -28,7 +28,7 @@ public class Cauldron {
         if (usable) {
             return "Usable";
         } else {
-            return "Damaged (" + getVoidContents() + ");
+            return "Damaged (" + getVoidContents() + ")";
         }
 }
 }
