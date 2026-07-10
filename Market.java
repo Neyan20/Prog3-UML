@@ -65,41 +65,46 @@ public class Market {
         needsRefresh = true;
     }
 
-    public void buySlots(int[] slotIndices, Player player) {
-        for (int i = 0; i < slotIndices.length; i++) {
-            int slotNum = slotIndices[i];
-            int idx = slotNum - 1;
+    public void buySlots(int[] slotIndices, int[] quantities, Player player) {
+    for (int i = 0; i < slotIndices.length; i++) {
+        int slotNum = slotIndices[i];
+        int idx = slotNum - 1;
+        int requestedQty = quantities[i];
 
-            if (idx < 0 || idx >= SLOT_COUNT) {
-                System.out.println("  Invalid slot: " + slotNum);
-                continue;
-            }
+        if (idx < 0 || idx >= SLOT_COUNT) {
+            System.out.println("  Invalid slot: " + slotNum);
+            continue;
+        }
 
-            MarketSlot slot = slots[idx];
-            if (slot.isEmpty() == true) {
-                System.out.println("  Slot " + slotNum + " is already empty.");
-                continue;
-            }
+        MarketSlot slot = slots[idx];
+        if (slot.isEmpty() == true) {
+            System.out.println("  Slot " + slotNum + " is already empty.");
+            continue;
+        }
 
-            Ingredient ing = slot.getIngredient();
-            int qty = slot.getQuantity();
+        if (requestedQty <= 0 || requestedQty > slot.getQuantity()) {
+            System.out.println("  Invalid quantity for slot " + slotNum + " (available: " + slot.getQuantity() + ").");
+            continue;
+        }
 
-            if (ing.getName().equals("Cauldron")) {
-                boolean success = player.spendCrystals(CAULDRON_PRICE);
-                if (success == false) continue;
-                player.addCauldron(new Cauldron());
-                slot.clear();
-                System.out.println("  Cauldron purchased and added to your collection.");
-            } else {
-                int totalCost = ing.getBuyPrice() * qty;
-                boolean paid = player.spendCrystals(totalCost);
-                if (paid == false) continue;
-                player.getInventory().addItem(ing.getName(), qty);
-                slot.clear();
-                System.out.printf("  Purchased %dx %s for %d crystals.%n", qty, ing.getName(), totalCost);
-            }
+        Ingredient ing = slot.getIngredient();
+
+        if (ing.getName().equals("Cauldron")) {
+            boolean success = player.spendCrystals(CAULDRON_PRICE);
+            if (success == false) continue;
+            player.addCauldron(new Cauldron());
+            slot.buy(requestedQty);
+            System.out.println("  Cauldron purchased and added to your collection.");
+        } else {
+            int totalCost = ing.getBuyPrice() * requestedQty;
+            boolean paid = player.spendCrystals(totalCost);
+            if (paid == false) continue;
+            player.getInventory().addItem(ing.getName(), requestedQty);
+            slot.buy(requestedQty);
+            System.out.printf("  Purchased %dx %s for %d crystals.%n", requestedQty, ing.getName(), totalCost);
         }
     }
+}
 
     public void sellIngredient(String name, int qty, Player player) {
         Ingredient ing = catalog.getByName(name);
