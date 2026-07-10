@@ -7,7 +7,7 @@ deadline : 9PM, July 11
 to-do: 
 
 - find bugs and implement fixes
-- add javadoc comments (see game and savemanager)
+- add javadoc comments (see game.java)
 - other deliverables:
 - test script pdf (see format in mco specs)
 - video demo (see script in announcements tab)
