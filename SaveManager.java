@@ -49,7 +49,7 @@ public class SaveManager {
             Cauldron[] cauldrons = player.getCauldrons();
             for (int i = 0; i < cauldrons.length; i++) {
                 if (cauldrons[i].isUsable() == false) {
-                    writer.println("DAMAGED CAULDRON " + dmgIdx + " = " + cauldrons[i].getJunkContents());
+                    writer.println("DAMAGED CAULDRON " + dmgIdx + " = " + cauldrons[i].getVoidContents());
                     dmgIdx++;
                 }
             }
