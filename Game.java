@@ -1,13 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-/**
- * Main entry point and game loop for Potion Prodigy.
- * Handles the opening menu, main menu, and all feature flows.
- *
- * @author [Kurt Andi Bundalian, Nean Paul Flor]
- * @version 1.0
- */
 
 public class Game {
     private static final int BLESS_COST = 1000;
@@ -214,23 +207,29 @@ public class Game {
             String choice = scanner.nextLine().trim();
 
             if (choice.equals("1")) {
-                market.display();
-                System.out.print("  Slot numbers to buy (e.g. 1,3,5) or 0 to cancel: ");
-                String buyInput = scanner.nextLine().trim();
-                if (buyInput.equals("0") == false) {
-                    String[] parts = buyInput.split(",");
-                    boolean validInput = true;
-                    for (int i = 0; i < parts.length; i++) {
-                        if (isNumeric(parts[i].trim()) == false) validInput = false;
-                    }
-                    if (validInput == false) {
-                        System.out.println("  Invalid input.");
-                    } else {
-                        int[] slots = new int[parts.length];
-                        for (int i = 0; i < parts.length; i++) slots[i] = Integer.parseInt(parts[i].trim());
-                        market.buySlots(slots, player);
-                    }
-                }
+            market.display();
+            System.out.print("  Slot:qty to buy (e.g. 1:2,3:1) or 0 to cancel: ");
+            String buyInput = scanner.nextLine().trim();
+            if (buyInput.equals("0") == false) {
+            String[] parts = buyInput.split(",");
+            boolean validInput = true;
+            for (int i = 0; i < parts.length; i++) {
+            String[] pair = parts[i].trim().split(":");
+            if (pair.length != 2 || isNumeric(pair[0].trim()) == false || isNumeric(pair[1].trim()) == false) validInput = false;
+        }
+        if (validInput == false) {
+            System.out.println("  Invalid input.");
+        } else {
+            int[] slots = new int[parts.length];
+            int[] quantities = new int[parts.length];
+            for (int i = 0; i < parts.length; i++) {
+                String[] pair = parts[i].trim().split(":");
+                slots[i] = Integer.parseInt(pair[0].trim());
+                quantities[i] = Integer.parseInt(pair[1].trim());
+            }
+            market.buySlots(slots, quantities, player);
+        }
+    }
             } else if (choice.equals("2")) {
                 player.getInventory().display();
                 System.out.println("  Format: Name,qty — separate multiple with semicolons");
