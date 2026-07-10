@@ -21,7 +21,7 @@ public class Player {
             cauldrons[i] = new Cauldron();
         }
 
-        this.inventory = new Inventory();
+        this.inventory = new Inventory(catalog);
         this.inventory.setDefaults();
     }
 

@@ -4,16 +4,25 @@ import java.util.Map;
 public class Inventory {
     Map<String, Integer> fruits = new HashMap<>();
     Map<String, Integer> bases = new HashMap<>();
+    private IngredientCatalog catalog;
+
+    public Inventory(IngredientCatalog catalog) {
+        this.catalog = catalog;
+    }
 
     public void addItem(String name, int qty) {
-        if (fruits.containsKey(name)) {
-            fruits.put(name, fruits.get(name) + qty);
-        } else if (bases.containsKey(name)) {
-            bases.put(name, bases.get(name) + qty);
-        } else {
-            // If the item is not in either map, you can choose to add it to one of them
-            // For example, let's add it to fruits by default
-            fruits.put(name, qty);
+        Ingredient ingredient = catalog.getByName(name);
+
+        if (ingredient != null) {
+            if (ingredient .isFruit()) {
+                fruits.put(name, fruits.getOrDefault(name, 0) + qty);
+            }
+            else if (ingredient.isBase()) {
+                bases.put(name, bases.getOrDefault(name, 0) + qty);
+            }
+        }
+        else {
+            System.out.println("Cannot add item: " + name + " is not a valid ingredient.");
         }
     }
 
@@ -68,10 +77,46 @@ public class Inventory {
     }
 
     public void display() {
-        
+        System.out.println("=== [ INVENTORY ] ===");
+        System.out.println("Fruits:");
+
+        if (fruits.isEmpty()) {
+            System.out.println("Currently no fruits in inventory.");
+        }
+        else {
+            for (Map.Entry<String, Integer> entry : fruits.entrySet()) {
+                String name = entry.getKey();
+                int qty = entry.getValue();
+                System.out.println(name + " = " + qty);
+            }
+        }
+        System.out.println("\nBases:");
+        if (bases.isEmpty()) {
+            System.out.println("Currently no bases in inventory.");
+        }
+        else {
+            for (Map.Entry<String, Integer> entry : bases.entrySet()) {
+                String name = entry.getKey();
+                int qty = entry.getValue();
+                System.out.println(name + " = " + qty);
+            }
+        }
     }
 
     public void setDefaults() {
-
+        addItem("Strawberry", 3);
+        addItem("Orange", 2);
+        addItem("Lemon", 2);
+        addItem("Banana", 3);
+        addItem("Mango", 1);
+        addItem("Pineapple", 0);
+        addItem("Kiwi", 1);
+        addItem("Blueberry", 3);
+        addItem("Coconut", 0);
+        addItem("Syrup Base", 3);
+        addItem("Bubble Base", 3);
+        addItem("Perfume Base", 1);
+        addItem("Milk Base", 2);
+        addItem("Lotion Base", 2);
     }
 }

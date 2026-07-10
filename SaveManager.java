@@ -71,7 +71,7 @@ public class SaveManager {
 
         String name = null;
         int crystals = 0, totalCauldrons = 0, usableCauldrons = 0;
-        Inventory inventory = new Inventory();
+        Inventory inventory = new Inventory(catalog);
         HashMap<Integer, String> damagedJunk = new HashMap<Integer, String>();
         String currentSection = "";
 
