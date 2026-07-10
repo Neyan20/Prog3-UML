@@ -31,12 +31,14 @@ public class Market {
         for (int i = 0; i < SLOT_COUNT; i++) {
             if (i == cauldronSlot) {
                 Ingredient cauldronItem = new Ingredient("Cauldron", CAULDRON_PRICE, 0, "CAULDRON");
-                slots[i] = new MarketSlot(cauldronItem, 1);
+                slots[i] = new MarketSlot();
+                slots[i].restock(cauldronItem, 1);
             } else {
                 int randIndex = random.nextInt(allIngredients.length);
                 Ingredient ing = allIngredients[randIndex];
                 int qty = 1 + random.nextInt(5);
-                slots[i] = new MarketSlot(ing, qty);
+                slots[i] = new MarketSlot();
+                slots[i].restock(ing, qty);
             }
         }
         needsRefresh = false;
