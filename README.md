@@ -12,4 +12,5 @@ to-do:
 - test script pdf (see format in mco specs)
 - video demo (see script in announcements tab)
 - generated javadoc (zip file)
-- 
+- finalize uml diagram (see xml file)
+- declaration of original work
