@@ -153,7 +153,7 @@ public class Player {
     }
 
     public void displayInventory() {
-        System.out.println("============== INVENTORY ==============");
+        System.out.println("==================== INVENTORY ====================");
         inventory.display();
         System.out.println("=== Cauldrons ===");
         int usable = getUsableCauldronCount();
@@ -162,6 +162,6 @@ public class Player {
         for (int i = 0; i < cauldrons.length; i++) {
             System.out.printf("  Cauldron %d: %s%n", i + 1, cauldrons[i]);
         }
-        System.out.println("=======================================");
+        System.out.println("====================================================");
     }
 }

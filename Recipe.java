@@ -49,4 +49,15 @@ public class Recipe {
         }
         return true;
     }
+
+    @Override
+    public String toString() {
+        return "Recipe{" +
+                "concoctionId=" + concoctionId +
+                ", base='" + base + '\'' +
+                ", fruits=" + fruits +
+                ", resultName='" + resultName + '\'' +
+                ", sellValue=" + sellValue +
+                '}';
+    }
 }

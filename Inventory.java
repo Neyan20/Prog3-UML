@@ -77,8 +77,7 @@ public class Inventory {
     }
 
     public void display() {
-        System.out.println("=== [ INVENTORY ] ===");
-        System.out.println("Fruits:");
+        System.out.println("=== Fruits ===");
 
         if (fruits.isEmpty()) {
             System.out.println("Currently no fruits in inventory.");
@@ -90,7 +89,7 @@ public class Inventory {
                 System.out.println(name + " = " + qty);
             }
         }
-        System.out.println("\nBases:");
+        System.out.println("\n=== Bases ===");
         if (bases.isEmpty()) {
             System.out.println("Currently no bases in inventory.");
         }
