@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Market {
@@ -26,7 +27,7 @@ public class Market {
         }
 
         // use Ingredient[] from IngredientCatalog
-        Ingredient[] allIngredients = catalog.getAll();
+    ArrayList<Ingredient> allIngredients = catalog.getAll();
 
         for (int i = 0; i < SLOT_COUNT; i++) {
             if (i == cauldronSlot) {
@@ -34,8 +35,8 @@ public class Market {
                 slots[i] = new MarketSlot();
                 slots[i].restock(cauldronItem, 1);
             } else {
-                int randIndex = random.nextInt(allIngredients.length);
-                Ingredient ing = allIngredients[randIndex];
+                int randIndex = random.nextInt(allIngredients.size());
+                Ingredient ing = allIngredients.get(randIndex);
                 int qty = 1 + random.nextInt(5);
                 slots[i] = new MarketSlot();
                 slots[i].restock(ing, qty);
