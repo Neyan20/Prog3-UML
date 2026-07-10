@@ -50,7 +50,7 @@ public class MarketSlot {
         if (empty) {
             return "Slot " + slotNumber + ": Empty";
         } else {
-            return "Slot " + slotNumber + ": " + ingredient.getName() + " x" + quantity;
+            return "Slot " + slotNumber + ": " + ingredient.getName() + " x" + quantity + " - " + ingredient.getBuyPrice() + " crystals each";
         }
     }
 }
