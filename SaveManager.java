@@ -2,20 +2,46 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * Handles saving and loading player, spellbook, and inventory data to and
+ * from plain-text save files on disk.
+ */
 public class SaveManager {
     private static final String SAVE_DIR = "saves/";
     private static final String EXTENSION = ".txt";
     private IngredientCatalog catalog;
 
+    /**
+     * Constructs the save manager, creating the saves directory if it
+     * doesn't already exist.
+     *
+     * @param catalog the ingredient catalog used to reconstruct saved data
+     */
     public SaveManager(IngredientCatalog catalog) {
         this.catalog = catalog;
         File dir = new File(SAVE_DIR);
         if (dir.exists() == false) dir.mkdirs();
     }
 
+    /**
+     * Builds the full file path for a given player's save file.
+     *
+     * @param name the player's name
+     * @return the full save file path
+     */
     private String getSavePath(String name) { return SAVE_DIR + name + EXTENSION; }
+
+    /**
+     * Checks whether a save file already exists for the given player name.
+     *
+     * @param name the player's name
+     * @return true if a save file exists
+     */
     public boolean fileExists(String name) { return new File(getSavePath(name)).exists(); }
 
+    /**
+     * @return the names of all existing save files, with the file extension removed
+     */
     public String[] listSaves() {
         String[] files = new File(SAVE_DIR).list((d, n) -> n.endsWith(EXTENSION));
         if (files == null) return new String[0];
@@ -23,6 +49,14 @@ public class SaveManager {
         return files;
     }
 
+    /**
+     * Saves the player's name, crystals, inventory, cauldron states, and
+     * spellbook to a save file.
+     *
+     * @param player     the player to save
+     * @param spellbook  the player's spellbook to save
+     * @param recipeData the loaded recipe data (currently unused in saving, kept for signature symmetry with loading)
+     */
     public void save(Player player, Spellbook spellbook, ArrayList<Recipe> recipeData) {
         try {
             PrintWriter writer = new PrintWriter(new FileWriter(getSavePath(player.getName())));
@@ -66,6 +100,13 @@ public class SaveManager {
         }
     }
 
+    /**
+     * Loads a player's data (name, crystals, inventory, cauldrons) from
+     * their save file.
+     *
+     * @param playerName the name of the player to load
+     * @return the reconstructed Player, or null if no save was found or loading failed
+     */
     public Player load(String playerName) {
         if (fileExists(playerName) == false) { System.out.println("  Save not found for '" + playerName + "'."); return null; }
 
@@ -112,6 +153,14 @@ public class SaveManager {
         } catch (IOException e) { System.out.println("  [Error] Could not load: " + e.getMessage()); return null; }
     }
 
+    /**
+     * Loads a player's spellbook from their save file, matching saved
+     * concoction IDs against the given recipe data.
+     *
+     * @param playerName the name of the player whose spellbook to load
+     * @param recipeData the loaded recipe data used to reconstruct full Recipe objects
+     * @return the reconstructed Spellbook (empty if no save file exists)
+     */
     public Spellbook loadSpellbook(String playerName, ArrayList<Recipe> recipeData) {
         Spellbook spellbook = new Spellbook();
         if (fileExists(playerName) == false) return spellbook;
@@ -139,6 +188,11 @@ public class SaveManager {
         return spellbook;
     }
 
+    /**
+     * Deletes a player's save file, if one exists.
+     *
+     * @param name the player's name
+     */
     public void deleteFile(String name) {
         File f = new File(getSavePath(name));
         if (f.exists() == true) { f.delete(); System.out.println("  Existing save deleted."); }

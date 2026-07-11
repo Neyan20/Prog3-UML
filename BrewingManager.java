@@ -1,16 +1,30 @@
 import java.util.ArrayList;
 import java.io.*;
 
+/**
+ * Handles loading recipe data and executing the brewing process, both for
+ * known recipes (Recipe Mode) and experimental combinations (Creative Mode).
+ */
 public class BrewingManager {
     private ArrayList<Recipe> recipeData;
     private IngredientCatalog catalog;
 
+    /**
+     * Constructs the brewing manager.
+     *
+     * @param catalog the ingredient catalog used elsewhere in the brewing process
+     */
     public BrewingManager(IngredientCatalog catalog) {
         this.recipeData = new ArrayList<Recipe>();
         this.catalog = catalog;
     }
 
-    // loads all valid recipes from the csv file
+    /**
+     * Loads all valid recipes from a CSV file into memory, replacing any
+     * previously loaded recipe data.
+     *
+     * @param filePath the path to the recipe data CSV file
+     */
     public void loadRecipeData(String filePath) {
         recipeData.clear();
         try {
@@ -46,9 +60,19 @@ public class BrewingManager {
         }
     }
 
+    /**
+     * @return the full list of loaded recipe data
+     */
     public ArrayList<Recipe> getRecipeData() { return recipeData; }
 
-    // brews using a recipe from the spellbook
+    /**
+     * Brews a known recipe from the spellbook using an available cauldron,
+     * consuming ingredients and selling the result on success.
+     *
+     * @param player the brewing player
+     * @param recipe the recipe to brew
+     * @return true if the brew succeeded
+     */
     public boolean brewRecipeMode(Player player, Recipe recipe) {
         Cauldron cauldron = player.getUsableCauldron();
         if (cauldron == null) { System.out.println("  No usable cauldrons! Bless one first."); return false; }
@@ -62,7 +86,17 @@ public class BrewingManager {
         return true;
     }
 
-    // brews in creative mode, success adds to spellbook, fail damages cauldron
+    /**
+     * Attempts to brew an experimental base/fruit combination in Creative Mode.
+     * On success, the discovered recipe is added to the spellbook and sold;
+     * on failure, the cauldron used becomes damaged.
+     *
+     * @param player    the brewing player
+     * @param base      the base ingredient used
+     * @param fruits    the fruit ingredients used
+     * @param spellbook the player's spellbook, updated if a new recipe is discovered
+     * @return the discovered Recipe if the combination is valid, otherwise null
+     */
     public Recipe brewCreativeMode(Player player, String base, ArrayList<String> fruits, Spellbook spellbook) {
         if (player.getUsableCauldronCount() <= 1) {
             System.out.println("  Only 1 usable cauldron left! Creative mode locked.");
@@ -98,12 +132,26 @@ public class BrewingManager {
         }
     }
 
+    /**
+     * Checks a base/fruit combination against all known recipe data.
+     *
+     * @param base   the base ingredient to check
+     * @param fruits the fruit ingredients to check
+     * @return the matching Recipe, or null if the combination doesn't match any recipe
+     */
     public Recipe validateCombo(String base, ArrayList<String> fruits) {
         for (int i = 0; i < recipeData.size(); i++)
             if (recipeData.get(i).matches(base, fruits) == true) return recipeData.get(i);
         return null;
     }
 
+    /**
+     * Checks whether the player has enough of each ingredient required by a recipe.
+     *
+     * @param player the player to check
+     * @param recipe the recipe to check against
+     * @return true if the player has at least 1 of the base and each required fruit
+     */
     public boolean hasIngredients(Player player, Recipe recipe) {
         if (player.getInventory().hasItem(recipe.getBase(), 1) == false) return false;
         ArrayList<String> fruits = recipe.getFruits();
@@ -112,11 +160,25 @@ public class BrewingManager {
         return true;
     }
 
+    /**
+     * Sells a brewed concoction, printing a confirmation and awarding the
+     * player its crystal sell value.
+     *
+     * @param player the selling player
+     * @param recipe the recipe representing the sold concoction
+     */
     public void sellConcoction(Player player, Recipe recipe) {
         System.out.println("  Potion bottled and sold automatically.");
         player.addCrystals(recipe.getSellValue());
     }
 
+    /**
+     * Removes the base and fruit ingredients required by a recipe from the
+     * player's inventory.
+     *
+     * @param player the player whose inventory is consumed
+     * @param recipe the recipe whose ingredients are consumed
+     */
     private void consumeIngredients(Player player, Recipe recipe) {
         player.getInventory().removeItem(recipe.getBase(), 1);
         ArrayList<String> fruits = recipe.getFruits();

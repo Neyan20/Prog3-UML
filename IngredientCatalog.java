@@ -1,9 +1,17 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * Holds the master list of every ingredient available in the game and
+ * provides lookup, filtering, and randomization methods over that list.
+ */
 public class IngredientCatalog {
     private ArrayList<Ingredient> ALL_INGREDIENTS;
 
+    /**
+     * Constructs the catalog and populates it with all base game ingredients
+     * (9 fruits and 5 bases).
+     */
     public IngredientCatalog() {
         this.ALL_INGREDIENTS = new ArrayList<>(Arrays.asList(
             //fruits
@@ -26,10 +34,16 @@ public class IngredientCatalog {
         ));
     }
 
+    /**
+     * @return every ingredient in the catalog
+     */
     public ArrayList<Ingredient> getAll() {
         return ALL_INGREDIENTS;
     }
 
+    /**
+     * @return only the ingredients whose type is "fruit"
+     */
     public ArrayList<Ingredient> getFruits() {
         ArrayList<Ingredient> fruits = new ArrayList<>();
         for (Ingredient ingredient : ALL_INGREDIENTS) {
@@ -40,6 +54,9 @@ public class IngredientCatalog {
         return fruits;
     }
 
+    /**
+     * @return only the ingredients whose type is "base"
+     */
     public ArrayList<Ingredient> getBases() {
         ArrayList<Ingredient> bases = new ArrayList<>();
         for (Ingredient ingredient : ALL_INGREDIENTS) {
@@ -50,6 +67,12 @@ public class IngredientCatalog {
         return bases;
     }
 
+    /**
+     * Looks up an ingredient by its exact name.
+     *
+     * @param name the ingredient name to search for
+     * @return the matching Ingredient, or null if none is found
+     */
     public Ingredient getByName(String name) {
         for (Ingredient ingredient : ALL_INGREDIENTS) {
             if (ingredient.getName().equals(name)) {
@@ -59,11 +82,17 @@ public class IngredientCatalog {
         return null;
     }
 
+    /**
+     * @return a randomly selected ingredient from the full catalog
+     */
     public Ingredient getRandom() {
         int randomIndex = (int) (Math.random() * ALL_INGREDIENTS.size());
         return ALL_INGREDIENTS.get(randomIndex);
     }
 
+    /**
+     * @return the total number of ingredients in the catalog
+     */
     public int getCount() {
         return ALL_INGREDIENTS.size();
     }

@@ -1,15 +1,30 @@
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Tracks the quantities of fruit and base ingredients a player currently holds.
+ */
 public class Inventory {
     Map<String, Integer> fruits = new HashMap<>();
     Map<String, Integer> bases = new HashMap<>();
     private IngredientCatalog catalog;
 
+    /**
+     * Constructs an empty inventory.
+     *
+     * @param catalog the ingredient catalog used to validate items being added
+     */
     public Inventory(IngredientCatalog catalog) {
         this.catalog = catalog;
     }
 
+    /**
+     * Adds a given quantity of an ingredient to the inventory, sorting it
+     * into the fruits or bases map based on its catalog type.
+     *
+     * @param name the ingredient name to add
+     * @param qty  the quantity to add
+     */
     public void addItem(String name, int qty) {
         Ingredient ingredient = catalog.getByName(name);
 
@@ -26,6 +41,13 @@ public class Inventory {
         }
     }
 
+    /**
+     * Removes a given quantity of an ingredient from the inventory.
+     *
+     * @param name the ingredient name to remove
+     * @param qty  the quantity to remove
+     * @return true if the removal succeeded, false if not enough was held or the item wasn't found
+     */
     public boolean removeItem(String name, int qty) {
         if (fruits.containsKey(name)) {
             int currentQty = fruits.get(name);
@@ -48,6 +70,13 @@ public class Inventory {
         }
     }
 
+    /**
+     * Checks whether the inventory holds at least the given quantity of an item.
+     *
+     * @param name the ingredient name to check
+     * @param qty  the required quantity
+     * @return true if enough of the item is held
+     */
     public boolean hasItem(String name, int qty) {
         if (fruits.containsKey(name) && fruits.get(name) >= qty) {
             return true;
@@ -58,6 +87,12 @@ public class Inventory {
         }
     }
 
+    /**
+     * Gets the quantity currently held of a given ingredient.
+     *
+     * @param name the ingredient name to look up
+     * @return the quantity held, or 0 if the item isn't in the inventory
+     */
     public int getQuantity(String name) {
         if (fruits.containsKey(name)) {
             return fruits.get(name);
@@ -68,14 +103,23 @@ public class Inventory {
         }
     }
 
+    /**
+     * @return a map of held fruit names to their quantities
+     */
     public Map<String, Integer> getFruits() {
         return fruits;
     }
 
+    /**
+     * @return a map of held base names to their quantities
+     */
     public Map<String, Integer> getBases() {
         return bases;
     }
 
+    /**
+     * Prints the current contents of the inventory (fruits and bases) to the console.
+     */
     public void display() {
         System.out.println("=== Fruits ===");
 
@@ -102,6 +146,9 @@ public class Inventory {
         }
     }
 
+    /**
+     * Populates the inventory with the default starting ingredients for a new game.
+     */
     public void setDefaults() {
         addItem("Strawberry", 3);
         addItem("Orange", 2);
