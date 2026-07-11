@@ -108,7 +108,7 @@ public class SaveManager {
                     cauldrons[i].setDamaged(damagedJunk.getOrDefault(i - usableCauldrons + 1, "Unknown junk"));
             }
             System.out.println("  Loaded save for '" + playerName + "'.");
-            return new Player(name, crystals, inventory, cauldrons);
+            return new Player(name, crystals, inventory, cauldrons, catalog);
         } catch (IOException e) { System.out.println("  [Error] Could not load: " + e.getMessage()); return null; }
     }
 
