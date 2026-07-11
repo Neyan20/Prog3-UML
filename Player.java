@@ -26,7 +26,7 @@ public class Player {
     }
 
     // constructor for loading from save file
-    public Player(String name, int crystals, Inventory inventory, Cauldron[] cauldrons) {
+    public Player(String name, int crystals, Inventory inventory, Cauldron[] cauldrons, IngredientCatalog catalog) {
         this.name = name;
         this.crystals = crystals;
         this.inventory = inventory;
