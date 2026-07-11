@@ -33,7 +33,7 @@ public class Player {
         this.cauldrons = cauldrons;
         this.loginBonusClaimed = false;
         this.concoctionsBrewed = 0;
-        this.catalog = null;
+        this.catalog = catalog;
     }
 
     public String getName() {
