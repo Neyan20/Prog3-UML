@@ -12,6 +12,7 @@ public class Cauldron {
 
     public void setDamaged(String junk) {
         usable = false;
+        junkContents = junk;
     }
 
     public void bless() {
