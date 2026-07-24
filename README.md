@@ -13,5 +13,5 @@ to-do:
 - update uml for the new classes
 - MVC:
   a. Model = 12 classes from MCO1
-  b. View = 9 game screens (Load/Save, Main Menu, Brew Concoction, Recipe Mode, Creative Mode, Inventory, Spellbooks, Market, Bless
+  b. View = 9 game screens (Load/Save, Main Menu, Brew Concoction, Recipe Mode, Creative Mode, Inventory, Spellbooks, Market, Bless)
   c. Controller = 1 controller file for all gui files
