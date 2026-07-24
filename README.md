@@ -12,6 +12,6 @@ to-do:
 - java swing framework?
 - update uml for the new classes
 - MVC:
-  Model = 12 classes from MCO1
-  View = 9 game screens (Load/Save, Main Menu, Brew Concoction, Recipe Mode, Creative Mode, Inventory, Spellbooks, Market, Bless
-  Controller = 1 controller file for all gui files
+  a. Model = 12 classes from MCO1
+  b. View = 9 game screens (Load/Save, Main Menu, Brew Concoction, Recipe Mode, Creative Mode, Inventory, Spellbooks, Market, Bless
+  c. Controller = 1 controller file for all gui files
