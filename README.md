@@ -10,6 +10,7 @@ to-do:
 **MCO2**
 - java gui using mvc architecture 
 - java swing framework?
+- update uml for the new classes
 - MVC:
   Model = 12 classes from MCO1
   View = 9 game screens (Load/Save, Main Menu, Brew Concoction, Recipe Mode, Creative Mode, Inventory, Spellbooks, Market, Bless
