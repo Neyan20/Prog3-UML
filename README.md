@@ -1,16 +1,16 @@
 # Prog3-UML
 CCPROG3 MCO1 UML DESIGN
 
-
-deadline : 9PM, July 11
+7/24 - Changes to uml diagram based on feedback from sir. Added part-whole relationships on the diagram. 
 
 to-do: 
 
-- find bugs and implement fixes - done
-- add javadoc comments - done
-- other deliverables:
-- test script pdf (see format in mco specs) - in progress
-- video demo (see script in announcements tab) - done 
-- generated javadoc (zip file) - done
-- finalize uml diagram (see xml file) - done
-- declaration of original work - done
+- fix market: each slot should be bought out completely instead of choosing quantity. 
+
+**MCO2**
+- java gui using mvc architecture 
+- java swing framework?
+- MVC:
+  Model = 12 classes from MCO1
+  View = 9 game screens (Load/Save, Main Menu, Brew Concoction, Recipe Mode, Creative Mode, Inventory, Spellbooks, Market, Bless
+  Controller = 1 controller file for all gui files
