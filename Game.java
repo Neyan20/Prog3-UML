@@ -2,11 +2,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
-/**
- * Main entry point and game loop for Potion Prodigy. Handles the opening
- * menu, main menu, and all gameplay flows (brewing, market, cauldrons,
- * login bonus, saving/loading).
- */
 public class Game {
     private static final int BLESS_COST = 1000;
     private static final String RECIPE_DATA_PATH = "data/POTION_COMPENDIUM.csv";
@@ -19,19 +14,10 @@ public class Game {
     private IngredientCatalog catalog;
     private Scanner scanner;
 
-    /**
-     * Program entry point; starts a new Game instance.
-     *
-     * @param args unused command-line arguments
-     */
     public static void main(String[] args) {
         new Game().startGame();
     }
 
-    /**
-     * Initializes all core game systems (catalog, save manager, brewing
-     * manager, market), loads recipe data, and shows the opening menu.
-     */
     public void startGame() {
         scanner = new Scanner(System.in);
         catalog = new IngredientCatalog();
@@ -42,11 +28,6 @@ public class Game {
         showOpeningMenu();
     }
 
-    /**
-     * Displays the opening menu, letting the player start a new game or
-     * load an existing save, until a valid player is ready. Then proceeds
-     * to the main menu.
-     */
     public void showOpeningMenu() {
         System.out.println("============================================");
         System.out.println("       WELCOME TO POTION PRODIGY           ");
@@ -71,13 +52,6 @@ public class Game {
         showMainMenu();
     }
 
-    /**
-     * Prompts for a player name and creates a new Player with default
-     * starting recipes, prompting to overwrite if a save already exists
-     * under that name.
-     *
-     * @return true if a new game was successfully started
-     */
     private boolean handleNewGame() {
         System.out.print("\nEnter your player name: ");
         String name = scanner.nextLine().trim();
@@ -94,10 +68,11 @@ public class Game {
         int[] startingIds = {1, 2, 16, 17, 36, 37, 55, 56};
         for (int i = 0; i < startingIds.length; i++) {
             ArrayList<Recipe> allRecipes = brewingManager.getRecipeData();
-            for (int j = 0; j < allRecipes.size(); j++) {
+            boolean found = false;
+            for (int j = 0; j < allRecipes.size() && found == false; j++) {
                 if (allRecipes.get(j).getConcoctionId() == startingIds[i]) {
                     spellbook.addRecipe(allRecipes.get(j));
-                    break;
+                    found = true;
                 }
             }
         }
@@ -106,12 +81,6 @@ public class Game {
         return true;
     }
 
-    /**
-     * Prompts for a save file name and loads the corresponding player and
-     * spellbook, marking the market for a refresh on next visit.
-     *
-     * @return true if a save was found and successfully loaded
-     */
     private boolean handleLoadGame() {
         System.out.print("\nEnter save file name: ");
         String name = scanner.nextLine().trim();
@@ -123,10 +92,6 @@ public class Game {
         return true;
     }
 
-    /**
-     * Displays the main menu in a loop, dispatching to the appropriate
-     * handler until the player chooses to exit.
-     */
     public void showMainMenu() {
         boolean running = true;
         while (running == true) {
@@ -154,10 +119,6 @@ public class Game {
         }
     }
 
-    /**
-     * Prompts the player to choose between Recipe Mode and Creative Mode,
-     * or cancel.
-     */
     private void handleBrew() {
         System.out.println("\n--- BREW CONCOCTION ---");
         System.out.println("[1] Recipe Mode\n[2] Creative Mode\n[3] Cancel");
@@ -168,10 +129,6 @@ public class Game {
         else System.out.println("  Cancelled.");
     }
 
-    /**
-     * Handles brewing a known recipe from the spellbook by Concoction ID,
-     * confirming with the player before committing to the brew.
-     */
     private void handleRecipeMode() {
         if (player.getUsableCauldronCount() == 0) { System.out.println("  No usable cauldrons!"); return; }
         spellbook.displayAll();
@@ -189,11 +146,6 @@ public class Game {
         else System.out.println("  Cancelled.");
     }
 
-    /**
-     * Handles Creative Mode: lets the player pick a base and up to 3 fruits
-     * to experiment with, then attempts the brew. Locked when only 1
-     * usable cauldron remains, to avoid soft-locking the game.
-     */
     private void handleCreativeMode() {
         if (player.getUsableCauldronCount() <= 1) {
             System.out.println("  Only 1 cauldron left — creative mode locked to prevent soft-locking.");
@@ -218,7 +170,8 @@ public class Game {
         ArrayList<Ingredient> fruits = catalog.getFruits();
         ArrayList<String> chosen = new ArrayList<String>();
 
-        while (chosen.size() < 3) {
+        boolean finishedSelecting = false;
+        while (chosen.size() < 3 && finishedSelecting == false) {
             System.out.println("\n  --- Select Fruit " + (chosen.size() + 1) + " ---");
             for (int i = 0; i < fruits.size(); i++) {
                 int qty = player.getInventory().getQuantity(fruits.get(i).getName());
@@ -231,7 +184,10 @@ public class Game {
             if (isNumeric(fruitInput) == false) { System.out.println("  Invalid."); continue; }
             int fruitIdx = Integer.parseInt(fruitInput);
             if (fruitIdx == -1) { System.out.println("  Cancelled."); return; }
-            if (fruitIdx == 0 && chosen.size() >= 1) break;
+            if (fruitIdx == 0 && chosen.size() >= 1) {
+                finishedSelecting = true;
+                continue;
+            }
             fruitIdx = fruitIdx - 1;
             if (fruitIdx < 0 || fruitIdx >= fruits.size()) { System.out.println("  Invalid selection."); continue; }
             String fruitName = fruits.get(fruitIdx).getName();
@@ -246,10 +202,6 @@ public class Game {
         else System.out.println("  Cancelled.");
     }
 
-    /**
-     * Handles the market submenu loop: buying from slots, selling
-     * ingredients, or exiting back to the main menu.
-     */
     private void handleMarket() {
         market.onVisit(player);
         boolean inMarket = true;
@@ -261,26 +213,22 @@ public class Game {
 
             if (choice.equals("1")) {
             market.display();
-            System.out.print("  Slot:qty to buy (e.g. 1:2,3:1) or 0 to cancel: ");
+            System.out.print("  Slot(s) to buy, e.g. 1,3 (buys the whole slot) or 0 to cancel: ");
             String buyInput = scanner.nextLine().trim();
             if (buyInput.equals("0") == false) {
             String[] parts = buyInput.split(",");
             boolean validInput = true;
             for (int i = 0; i < parts.length; i++) {
-            String[] pair = parts[i].trim().split(":");
-            if (pair.length != 2 || isNumeric(pair[0].trim()) == false || isNumeric(pair[1].trim()) == false) validInput = false;
+            if (isNumeric(parts[i].trim()) == false) validInput = false;
         }
         if (validInput == false) {
             System.out.println("  Invalid input.");
         } else {
             int[] slots = new int[parts.length];
-            int[] quantities = new int[parts.length];
             for (int i = 0; i < parts.length; i++) {
-                String[] pair = parts[i].trim().split(":");
-                slots[i] = Integer.parseInt(pair[0].trim());
-                quantities[i] = Integer.parseInt(pair[1].trim());
+                slots[i] = Integer.parseInt(parts[i].trim());
             }
-            market.buySlots(slots, quantities, player);
+            market.buySlots(slots, player);
         }
     }
             } else if (choice.equals("2")) {
@@ -305,10 +253,6 @@ public class Game {
         }
     }
 
-    /**
-     * Handles blessing a damaged cauldron for a crystal cost, restoring it
-     * to usable if the player confirms and has enough crystals.
-     */
     private void handleBlessCauldron() {
         if (player.getDamagedCauldronCount() == 0) { System.out.println("  All cauldrons are fine!"); return; }
         System.out.printf("  Damaged: %d | Cost: %d crystals | Your crystals: %d%n",
@@ -322,10 +266,6 @@ public class Game {
         }
     }
 
-    /**
-     * Handles claiming the one-time login bonus, if not already claimed
-     * this session.
-     */
     private void handleLoginBonus() {
         if (player.isLoginBonusClaimed() == true) { System.out.println("  Already claimed! Exit and reenter to claim again."); return; }
         Ingredient bonus = player.claimLoginBonus();
@@ -343,12 +283,6 @@ public class Game {
         return true;
     }
 
-    /**
-     * Handles exiting the game: marks the market for refresh, saves the
-     * current player and spellbook, and closes the input scanner.
-     *
-     * @return false, to stop the main menu loop
-     */
     private boolean handleExit() {
         System.out.println("\n  Saving...");
         market.markForRefresh();

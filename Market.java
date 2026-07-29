@@ -1,10 +1,6 @@
 import java.util.ArrayList;
 import java.util.Random;
 
-/**
- * Manages the in-game market where players buy ingredients or cauldrons
- * and sell ingredients from their inventory.
- */
 public class Market {
     private static final int SLOT_COUNT = 8;
     private static final int CAULDRON_PRICE = 3000;
@@ -14,11 +10,6 @@ public class Market {
     private Random random;
     private IngredientCatalog catalog;
 
-    /**
-     * Constructs the market and generates its initial stock.
-     *
-     * @param catalog the ingredient catalog used to stock the market's slots
-     */
     public Market(IngredientCatalog catalog) {
         this.slots = new MarketSlot[SLOT_COUNT];
         this.needsRefresh = false;
@@ -27,10 +18,7 @@ public class Market {
         generateStock();
     }
 
-    /**
-     * Randomly fills all 8 slots with ingredients, with at most one slot
-     * containing a Cauldron for purchase.
-     */
+    // randomly fills the 8 slots with ingredients
     public void generateStock() {
         boolean includeCauldron = random.nextBoolean();
         int cauldronSlot = -1;
@@ -57,21 +45,12 @@ public class Market {
         needsRefresh = false;
     }
 
-    /**
-     * Refreshes the market's stock and notifies the player via console output.
-     */
     public void refresh() {
         System.out.println("  [Market] The market has been refreshed with new stock!");
         generateStock();
     }
 
-    /**
-     * Called when a player visits the market; refreshes stock if flagged or
-     * if the player has brewed 3 or more concoctions since the last visit,
-     * then resets that concoction counter.
-     *
-     * @param player the visiting player
-     */
+    // called when player visits the market
     public void onVisit(Player player) {
         if (needsRefresh == true) {
             refresh();
@@ -82,25 +61,14 @@ public class Market {
         player.resetConcoctionsBrewed();
     }
 
-    /**
-     * Flags the market so its stock will be regenerated on the next visit.
-     */
     public void markForRefresh() {
         needsRefresh = true;
     }
 
-    /**
-     * Purchases chosen quantities from the given slot numbers on behalf of the player.
-     *
-     * @param slotIndices the 1-based slot numbers the player selected
-     * @param quantities  the quantity to buy from each corresponding slot
-     * @param player      the purchasing player
-     */
-    public void buySlots(int[] slotIndices, int[] quantities, Player player) {
+    public void buySlots(int[] slotIndices, Player player) {
     for (int i = 0; i < slotIndices.length; i++) {
         int slotNum = slotIndices[i];
         int idx = slotNum - 1;
-        int requestedQty = quantities[i];
 
         if (idx < 0 || idx >= SLOT_COUNT) {
             System.out.println("  Invalid slot: " + slotNum);
@@ -113,10 +81,7 @@ public class Market {
             continue;
         }
 
-        if (requestedQty <= 0 || requestedQty > slot.getQuantity()) {
-            System.out.println("  Invalid quantity for slot " + slotNum + " (available: " + slot.getQuantity() + ").");
-            continue;
-        }
+        int requestedQty = slot.getQuantity(); // buying out the whole slot, no partial quantity allowed
 
         Ingredient ing = slot.getIngredient();
 
@@ -137,14 +102,6 @@ public class Market {
     }
 }
 
-    /**
-     * Sells a given quantity of an ingredient from the player's inventory
-     * for crystals.
-     *
-     * @param name   the ingredient name to sell
-     * @param qty    the quantity to sell
-     * @param player the selling player
-     */
     public void sellIngredient(String name, int qty, Player player) {
         Ingredient ing = catalog.getByName(name);
         if (ing == null) {
@@ -164,9 +121,6 @@ public class Market {
         System.out.printf("  Sold %dx %s for %d crystals.%n", qty, name, earnings);
     }
 
-    /**
-     * Prints the current market stock (all 8 slots) to the console.
-     */
     public void display() {
         System.out.println("================== MARKET ==================");
         for (int i = 0; i < SLOT_COUNT; i++) {
@@ -175,9 +129,6 @@ public class Market {
         System.out.println("============================================");
     }
 
-    /**
-     * @return the array of current market slots
-     */
     public MarketSlot[] getSlots() {
         return slots;
     }
