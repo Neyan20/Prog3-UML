@@ -1,14 +1,16 @@
 **MCO1**
 
 7/24 - Changes to uml diagram based on feedback from sir. Added part-whole relationships on the diagram. 
+7/29 - Implemented changes to Market.java and Game.java based on the feedback. Market Slots are now emptied
+out when buying instead of being able to choose a quantity. 
 
-to-do: 
-- fix market: each slot should be bought out completely instead of choosing quantity. 
 
 **MCO2**
+deadline : **August 3 7:30 AM (Monday)**
+
 
 - java gui using mvc architecture 
-- java swing framework?
+- java swing framework
 - update uml for the new classes
 - MVC:
   a. Model = 12 classes from MCO1
