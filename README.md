@@ -9,6 +9,15 @@ out when buying instead of being able to choose a quantity.
 **MCO2**
 deadline : **August 3; 7:30 AM (Monday)**
 
+7/30 - Uploaded GameController, OpeningView, MainMenuView, MarketView, CreativeModeView
+
+to-do: 
+- BlessCauldronView, BrewView, InventoryView, RecipeModeView, SpellbookView
+
+- finalize uml diagram
+
+- Sign-up for a demo schedule
+
 
 - java gui using mvc architecture 
 - java swing framework
