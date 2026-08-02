@@ -130,10 +130,9 @@ public class Player {
      */
     public Cauldron getUsableCauldron() {
         Cauldron result = null;
-        for (int i = 0; i < cauldrons.length; i++) {
+        for (int i = 0; i < cauldrons.length && result == null; i++) {
             if (cauldrons[i].isUsable() == true) {
                 result = cauldrons[i];
-                break;
             }
         }
         return result;
@@ -170,10 +169,9 @@ public class Player {
      */
     public Cauldron getDamagedCauldron() {
         Cauldron result = null;
-        for (int i = 0; i < cauldrons.length; i++) {
+        for (int i = 0; i < cauldrons.length && result == null; i++) {
             if (cauldrons[i].isUsable() == false) {
                 result = cauldrons[i];
-                break;
             }
         }
         return result;

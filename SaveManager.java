@@ -168,7 +168,8 @@ public class SaveManager {
             BufferedReader reader = new BufferedReader(new FileReader(getSavePath(playerName)));
             String line;
             boolean inSpellbook = false;
-            while ((line = reader.readLine()) != null) {
+            boolean doneReadingSpellbook = false;
+            while (doneReadingSpellbook == false && (line = reader.readLine()) != null) {
                 line = line.trim();
                 if (line.isEmpty()) continue;
                 if (line.equals("[SPELLBOOK]")) { inSpellbook = true; continue; }
@@ -176,11 +177,15 @@ public class SaveManager {
                     String[] ids = line.split(",");
                     for (int i = 0; i < ids.length; i++) {
                         int id = Integer.parseInt(ids[i].trim());
-                        for (int j = 0; j < recipeData.size(); j++) {
-                            if (recipeData.get(j).getConcoctionId() == id) { spellbook.addRecipe(recipeData.get(j)); break; }
+                        boolean matched = false;
+                        for (int j = 0; j < recipeData.size() && matched == false; j++) {
+                            if (recipeData.get(j).getConcoctionId() == id) {
+                                spellbook.addRecipe(recipeData.get(j));
+                                matched = true;
+                            }
                         }
                     }
-                    break;
+                    doneReadingSpellbook = true;
                 }
             }
             reader.close();
