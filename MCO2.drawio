@@ -1,0 +1,285 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Potion Prodigy - Full UML" id="potionprodigyfull">
+    <mxGraphModel dx="1503" dy="993" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2820" pageHeight="2382" background="#ffffff" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="cls2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontSize=11;fontFamily=Consolas;spacingTop=6;spacingBottom=6;strokeColor=#d6b656;fillColor=#fff2cc;fontColor=#000000;" value="&lt;div style=&quot;text-align:center;font-weight:bold;font-size:13px;padding:0 8px;&quot;&gt;Ingredient&lt;/div&gt;&lt;hr size=&quot;1&quot; style=&quot;border-color:#999999;margin:4px 0;width:100%;&quot;/&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- name : String&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- buyPrice : int&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- sellPrice : int&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- type : String&lt;/div&gt;&lt;hr size=&quot;1&quot; style=&quot;border-color:#999999;margin:4px 0;width:100%;&quot;/&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ Ingredient(name, buyPrice, sellPrice, type)&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ getName(): String&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ getBuyPrice(): int&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ getSellPrice(): int&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ getType(): String&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ isFruit(): boolean&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ isBase(): boolean&lt;/div&gt;" vertex="1">
+          <mxGeometry height="236" width="220" x="179.97" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="cls3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontSize=11;fontFamily=Consolas;spacingTop=6;spacingBottom=6;strokeColor=#d6b656;fillColor=#fff2cc;fontColor=#000000;" value="&lt;div style=&quot;text-align:center;font-weight:bold;font-size:13px;padding:0 8px;&quot;&gt;IngredientCatalog&lt;/div&gt;&lt;hr size=&quot;1&quot; style=&quot;border-color:#999999;margin:4px 0;width:100%;&quot;/&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- ALL_INGREDIENTS : ArrayList&lt;Ingredient&gt;&lt;/div&gt;&lt;hr size=&quot;1&quot; style=&quot;border-color:#999999;margin:4px 0;width:100%;&quot;/&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ IngredientCatalog()&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ getAll(): ArrayList&lt;Ingredient&gt;&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ getFruits(): ArrayList&lt;Ingredient&gt;&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ getBases(): ArrayList&lt;Ingredient&gt;&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ getByName(name): Ingredient&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ getRandom(): Ingredient&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ getCount(): int&lt;/div&gt;" vertex="1">
+          <mxGeometry height="188" width="180" x="209.97" y="296" as="geometry" />
+        </mxCell>
+        <mxCell id="cls4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontSize=11;fontFamily=Consolas;spacingTop=6;spacingBottom=6;strokeColor=#d6b656;fillColor=#fff2cc;fontColor=#000000;" value="&lt;div style=&quot;text-align:center;font-weight:bold;font-size:13px;padding:0 8px;&quot;&gt;Cauldron&lt;/div&gt;&lt;hr size=&quot;1&quot; style=&quot;border-color:#999999;margin:4px 0;width:100%;&quot;/&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- usable : boolean&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- junkContents : String&lt;/div&gt;&lt;hr size=&quot;1&quot; style=&quot;border-color:#999999;margin:4px 0;width:100%;&quot;/&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ Cauldron()&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ isUsable(): boolean&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ setDamaged(junk): void&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ bless(): void&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ getVoidContents(): String&lt;/div&gt;" vertex="1">
+          <mxGeometry height="172" width="140" x="460" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="cls5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontSize=11;fontFamily=Consolas;spacingTop=6;spacingBottom=6;strokeColor=#82b366;fillColor=#d5e8d4;fontColor=#000000;" value="&lt;div style=&quot;text-align:center;font-weight:bold;font-size:13px;padding:0 8px;&quot;&gt;Player&lt;/div&gt;&lt;hr size=&quot;1&quot; style=&quot;border-color:#999999;margin:4px 0;width:100%;&quot;/&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- name : String&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- crystals : int&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- inventory : Inventory&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- cauldrons : Cauldron[]&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- loginBonusClaimed : boolean&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- concoctionsBrewed : int&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- catalog : IngredientCatalog&lt;/div&gt;&lt;hr size=&quot;1&quot; style=&quot;border-color:#999999;margin:4px 0;width:100%;&quot;/&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ Player(name, catalog)&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ Player(name, crystals, inventory, cauldrons)&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ getName(): String&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ getCrystals(): int&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ getInventory(): Inventory&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ getCauldrons(): Cauldron[]&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ isLoginBonusClaimed(): boolean&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ getConcoctionsBrewed(): int&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ addCrystals(amount): void&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ spendCrystals(amount): boolean&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ getUsableCauldron(): Cauldron&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ getUsableCauldronCount(): int&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ getDamagedCauldronCount(): int&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ getDamagedCauldron(): Cauldron&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ addCauldron(c): void&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ claimLoginBonus(): Ingredient&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ incrementConcoctionsBrewed(): void&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ resetConcoctionsBrewed(): void&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ displayStatus(): void&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ displayInventory(): void&lt;/div&gt;" vertex="1">
+          <mxGeometry height="492" width="220" x="660" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="cls6" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontSize=11;fontFamily=Consolas;spacingTop=6;spacingBottom=6;strokeColor=#82b366;fillColor=#d5e8d4;fontColor=#000000;" value="&lt;div style=&quot;text-align:center;font-weight:bold;font-size:13px;padding:0 8px;&quot;&gt;Inventory&lt;/div&gt;&lt;hr size=&quot;1&quot; style=&quot;border-color:#999999;margin:4px 0;width:100%;&quot;/&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- fruits : Map&lt;String, Integer&gt;&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- bases : Map&lt;String, Integer&gt;&lt;/div&gt;&lt;hr size=&quot;1&quot; style=&quot;border-color:#999999;margin:4px 0;width:100%;&quot;/&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ addItem(name, qty): void&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ removeItem(name, qty): boolean&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ hasItem(name, qty): boolean&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ getQuantity(name): int&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ getFruits(): Map&lt;String, Integer&gt;&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ getBases(): Map&lt;String, Integer&gt;&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ display(): void&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ setDefaults(): void&lt;/div&gt;" vertex="1">
+          <mxGeometry height="220" width="180" x="1020" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="cls7" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontSize=11;fontFamily=Consolas;spacingTop=6;spacingBottom=6;strokeColor=#9673a6;fillColor=#e1d5e7;fontColor=#000000;" value="&lt;div style=&quot;text-align:center;font-weight:bold;font-size:13px;padding:0 8px;&quot;&gt;Recipe&lt;/div&gt;&lt;hr size=&quot;1&quot; style=&quot;border-color:#999999;margin:4px 0;width:100%;&quot;/&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- concoctionId : int&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- base : String&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- fruits : ArrayList&lt;String&gt;&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- resultName : String&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- sellValue : int&lt;/div&gt;&lt;hr size=&quot;1&quot; style=&quot;border-color:#999999;margin:4px 0;width:100%;&quot;/&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ Recipe(concoctionId, base, fruits, resultName, sellValue)&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ getConcoctionId(): int&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ getBase(): String&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ getFruits(): ArrayList&lt;String&gt;&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ getResultName(): String&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ getSellValue(): int&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ matches(base, fruits): boolean&lt;/div&gt;" vertex="1">
+          <mxGeometry height="252" width="280" x="1360" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="cls8" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontSize=11;fontFamily=Consolas;spacingTop=6;spacingBottom=6;strokeColor=#9673a6;fillColor=#e1d5e7;fontColor=#000000;" value="&lt;div style=&quot;text-align:center;font-weight:bold;font-size:13px;padding:0 8px;&quot;&gt;Spellbook&lt;/div&gt;&lt;hr size=&quot;1&quot; style=&quot;border-color:#999999;margin:4px 0;width:100%;&quot;/&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- recipes : ArrayList&lt;Recipe&gt;&lt;/div&gt;&lt;hr size=&quot;1&quot; style=&quot;border-color:#999999;margin:4px 0;width:100%;&quot;/&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ Spellbook()&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ addRecipe(r): void&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ hasRecipe(r): boolean&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ hasRecipeById(id): boolean&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ getRecipeById(id): Recipe&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ getRecipes(): ArrayList&lt;Recipe&gt;&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ getCount(): int&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ sortById(): void&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ displayAll(): void&lt;/div&gt;" vertex="1">
+          <mxGeometry height="218" width="160" x="1420" y="312" as="geometry" />
+        </mxCell>
+        <mxCell id="cls9" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontSize=11;fontFamily=Consolas;spacingTop=6;spacingBottom=6;strokeColor=#6c8ebf;fillColor=#dae8fc;fontColor=#000000;" value="&lt;div style=&quot;text-align:center;font-weight:bold;font-size:13px;padding:0 8px;&quot;&gt;BrewingManager&lt;/div&gt;&lt;hr size=&quot;1&quot; style=&quot;border-color:#999999;margin:4px 0;width:100%;&quot;/&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- recipeData : ArrayList&lt;Recipe&gt;&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- catalog : IngredientCatalog&lt;/div&gt;&lt;hr size=&quot;1&quot; style=&quot;border-color:#999999;margin:4px 0;width:100%;&quot;/&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ BrewingManager(catalog)&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ loadRecipeData(filePath): void&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ getRecipeData(): ArrayList&lt;Recipe&gt;&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ brewRecipeMode(p, r): boolean&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ brewCreativeMode(p, base, fruits, sb): Recipe&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ validateCombo(base, fruits): Recipe&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ hasIngredients(p, r): boolean&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ sellConcoction(p, r): void&lt;/div&gt;" vertex="1">
+          <mxGeometry height="220" width="230" x="1700" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="cls10" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontSize=11;fontFamily=Consolas;spacingTop=6;spacingBottom=6;strokeColor=#b85450;fillColor=#f8cecc;fontColor=#000000;" value="&lt;div style=&quot;text-align:center;font-weight:bold;font-size:13px;padding:0 8px;&quot;&gt;Market&lt;/div&gt;&lt;hr size=&quot;1&quot; style=&quot;border-color:#999999;margin:4px 0;width:100%;&quot;/&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- SLOT_COUNT : int = 8&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- CAULDRON_PRICE : int = 3000&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- slots : MarketSlot[]&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- needsRefresh : boolean&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- random : Random&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- catalog : IngredientCatalog&lt;/div&gt;&lt;hr size=&quot;1&quot; style=&quot;border-color:#999999;margin:4px 0;width:100%;&quot;/&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ Market(catalog)&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ generateStock(): void&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ refresh(): void&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ onVisit(player): void&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ markForRefresh(): void&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ buySlots(indices, p): void&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ sellIngredient(name, qty, p): void&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ getSlots(): MarketSlot[]&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ display(): void&lt;/div&gt;" vertex="1">
+          <mxGeometry height="300" width="180" x="2080" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="cls11" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontSize=11;fontFamily=Consolas;spacingTop=6;spacingBottom=6;strokeColor=#b85450;fillColor=#f8cecc;fontColor=#000000;" value="&lt;div style=&quot;text-align:center;font-weight:bold;font-size:13px;padding:0 8px;&quot;&gt;MarketSlot&lt;/div&gt;&lt;hr size=&quot;1&quot; style=&quot;border-color:#999999;margin:4px 0;width:100%;&quot;/&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- ingredient : Ingredient&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- quantity : int&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- empty : boolean&lt;/div&gt;&lt;hr size=&quot;1&quot; style=&quot;border-color:#999999;margin:4px 0;width:100%;&quot;/&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ MarketSlot()&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ isEmpty(): boolean&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ getIngredient(): Ingredient&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ getQuantity(): int&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ buy(qty): boolean&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ clear(): void&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ restock(i, qty): void&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ toDisplayString(slotNumber): String&lt;/div&gt;" vertex="1">
+          <mxGeometry height="236" width="190" x="2080" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="cls12" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontSize=11;fontFamily=Consolas;spacingTop=6;spacingBottom=6;strokeColor=#6c8ebf;fillColor=#dae8fc;fontColor=#000000;" value="&lt;div style=&quot;text-align:center;font-weight:bold;font-size:13px;padding:0 8px;&quot;&gt;SaveManager&lt;/div&gt;&lt;hr size=&quot;1&quot; style=&quot;border-color:#999999;margin:4px 0;width:100%;&quot;/&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- SAVE_DIR : String&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- EXTENSION : String = &quot;.txt&quot;&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- catalog : IngredientCatalog&lt;/div&gt;&lt;hr size=&quot;1&quot; style=&quot;border-color:#999999;margin:4px 0;width:100%;&quot;/&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ SaveManager(catalog)&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ fileExists(name): boolean&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ listSaves(): String[]&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ save(p, sb, recipes): void&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ load(playerName): Player&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ loadSpellbook(name, recipes): Spellbook&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ deleteFile(name): void&lt;/div&gt;" vertex="1">
+          <mxGeometry height="220" width="210" x="2460" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="cls13" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontSize=11;fontFamily=Consolas;spacingTop=6;spacingBottom=6;strokeColor=#6c8ebf;fillColor=#dae8fc;fontColor=#000000;" value="&lt;div style=&quot;text-align:center;font-weight:bold;font-size:13px;padding:0 8px;&quot;&gt;GameController&lt;/div&gt;&lt;hr size=&quot;1&quot; style=&quot;border-color:#999999;margin:4px 0;width:100%;&quot;/&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- player : Player&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- market : Market&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- spellbook : Spellbook&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- brewingManager : BrewingManager&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- saveManager : SaveManager&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- catalog : IngredientCatalog&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- mainMenuView : MainMenuView&lt;/div&gt;&lt;hr size=&quot;1&quot; style=&quot;border-color:#999999;margin:4px 0;width:100%;&quot;/&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ main(args): void&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ start(): void&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ saveExists(name): boolean&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ startNewGame(name): void&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ loadGame(name): boolean&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ showMainMenu(): void&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ brewRecipe(id): String&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ brewCreative(base, fruits): String&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ visitMarket(): void&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ buyFromMarket(slots): String&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ sellIngredient(name, qty): String&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ blessCauldron(): String&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ claimLoginBonus(): String&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ saveAndExit(): void&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ getPlayer(): Player&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ getMarket(): Market&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ getSpellbook(): Spellbook&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ getCatalog(): IngredientCatalog&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ getBlessCost(): int&lt;/div&gt;" vertex="1">
+          <mxGeometry height="474" width="380" x="1210" y="866" as="geometry" />
+        </mxCell>
+        <mxCell id="cls14" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontSize=11;fontFamily=Consolas;spacingTop=6;spacingBottom=6;strokeColor=#82b366;fillColor=#d5e8d4;fontColor=#000000;" value="&lt;div style=&quot;text-align:center;font-weight:bold;font-size:13px;padding:0 8px;&quot;&gt;OpeningView&lt;/div&gt;&lt;hr size=&quot;1&quot; style=&quot;border-color:#999999;margin:4px 0;width:100%;&quot;/&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- controller : GameController&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- nameField : JTextField&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- newGameBtn : JButton&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- loadGameBtn : JButton&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- messageLabel : JLabel&lt;/div&gt;&lt;hr size=&quot;1&quot; style=&quot;border-color:#999999;margin:4px 0;width:100%;&quot;/&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ buildUI(): void&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ handleNewGame(): void&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ handleLoadGame(): void&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ display(): void&lt;/div&gt;" vertex="1">
+          <mxGeometry height="204" width="150" x="440" y="1442" as="geometry" />
+        </mxCell>
+        <mxCell id="cls15" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontSize=11;fontFamily=Consolas;spacingTop=6;spacingBottom=6;strokeColor=#82b366;fillColor=#d5e8d4;fontColor=#000000;" value="&lt;div style=&quot;text-align:center;font-weight:bold;font-size:13px;padding:0 8px;&quot;&gt;MainMenuView&lt;/div&gt;&lt;hr size=&quot;1&quot; style=&quot;border-color:#999999;margin:4px 0;width:100%;&quot;/&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- controller : GameController&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- playerLabel : JLabel&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- crystalLabel : JLabel&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- brewBtn, inventoryBtn, spellbookBtn : JButton&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- marketBtn, blessBtn, bonusBtn, exitBtn : JButton&lt;/div&gt;&lt;hr size=&quot;1&quot; style=&quot;border-color:#999999;margin:4px 0;width:100%;&quot;/&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ buildUI(): void&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ handleExit(): void&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ refresh(): void&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ display(): void&lt;/div&gt;" vertex="1">
+          <mxGeometry height="204" width="250" x="1080" y="1442" as="geometry" />
+        </mxCell>
+        <mxCell id="cls16" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontSize=11;fontFamily=Consolas;spacingTop=6;spacingBottom=6;strokeColor=#9673a6;fillColor=#e1d5e7;fontColor=#000000;" value="&lt;div style=&quot;text-align:center;font-weight:bold;font-size:13px;padding:0 8px;&quot;&gt;BrewView&lt;/div&gt;&lt;hr size=&quot;1&quot; style=&quot;border-color:#999999;margin:4px 0;width:100%;&quot;/&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- controller : GameController&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- parent : MainMenuView&lt;/div&gt;&lt;hr size=&quot;1&quot; style=&quot;border-color:#999999;margin:4px 0;width:100%;&quot;/&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ buildUI(): void&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ display(): void&lt;/div&gt;" vertex="1">
+          <mxGeometry height="124" width="150" x="440" y="1786" as="geometry" />
+        </mxCell>
+        <mxCell id="cls17" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontSize=11;fontFamily=Consolas;spacingTop=6;spacingBottom=6;strokeColor=#b85450;fillColor=#f8cecc;fontColor=#000000;" value="&lt;div style=&quot;text-align:center;font-weight:bold;font-size:13px;padding:0 8px;&quot;&gt;MarketView&lt;/div&gt;&lt;hr size=&quot;1&quot; style=&quot;border-color:#999999;margin:4px 0;width:100%;&quot;/&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- controller : GameController&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- parent : MainMenuView&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- buyList, sellList : JList&lt;String&gt;&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- buyField, sellField : JTextField&lt;/div&gt;&lt;hr size=&quot;1&quot; style=&quot;border-color:#999999;margin:4px 0;width:100%;&quot;/&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ buildUI(): void&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ handleBuy(): void&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ handleSell(): void&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ display(): void&lt;/div&gt;" vertex="1">
+          <mxGeometry height="188" width="170" x="760" y="1786" as="geometry" />
+        </mxCell>
+        <mxCell id="cls18" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontSize=11;fontFamily=Consolas;spacingTop=6;spacingBottom=6;strokeColor=#d6b656;fillColor=#fff2cc;fontColor=#000000;" value="&lt;div style=&quot;text-align:center;font-weight:bold;font-size:13px;padding:0 8px;&quot;&gt;InventoryView&lt;/div&gt;&lt;hr size=&quot;1&quot; style=&quot;border-color:#999999;margin:4px 0;width:100%;&quot;/&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- controller : GameController&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- parent : MainMenuView&lt;/div&gt;&lt;hr size=&quot;1&quot; style=&quot;border-color:#999999;margin:4px 0;width:100%;&quot;/&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ buildUI(): void&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ buildInventoryText(): String&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ display(): void&lt;/div&gt;" vertex="1">
+          <mxGeometry height="140" width="160" x="1120" y="1786" as="geometry" />
+        </mxCell>
+        <mxCell id="cls19" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontSize=11;fontFamily=Consolas;spacingTop=6;spacingBottom=6;strokeColor=#d6b656;fillColor=#fff2cc;fontColor=#000000;" value="&lt;div style=&quot;text-align:center;font-weight:bold;font-size:13px;padding:0 8px;&quot;&gt;SpellbookView&lt;/div&gt;&lt;hr size=&quot;1&quot; style=&quot;border-color:#999999;margin:4px 0;width:100%;&quot;/&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- controller : GameController&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- parent : MainMenuView&lt;/div&gt;&lt;hr size=&quot;1&quot; style=&quot;border-color:#999999;margin:4px 0;width:100%;&quot;/&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ buildUI(): void&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ display(): void&lt;/div&gt;" vertex="1">
+          <mxGeometry height="124" width="150" x="1440" y="1786" as="geometry" />
+        </mxCell>
+        <mxCell id="cls20" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontSize=11;fontFamily=Consolas;spacingTop=6;spacingBottom=6;strokeColor=#d6b656;fillColor=#fff2cc;fontColor=#000000;" value="&lt;div style=&quot;text-align:center;font-weight:bold;font-size:13px;padding:0 8px;&quot;&gt;BlessCauldronView&lt;/div&gt;&lt;hr size=&quot;1&quot; style=&quot;border-color:#999999;margin:4px 0;width:100%;&quot;/&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- controller : GameController&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- parent : MainMenuView&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- infoLabel : JLabel&lt;/div&gt;&lt;hr size=&quot;1&quot; style=&quot;border-color:#999999;margin:4px 0;width:100%;&quot;/&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ buildUI(): void&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ buildInfoText(): String&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ display(): void&lt;/div&gt;" vertex="1">
+          <mxGeometry height="156" width="150" x="1760" y="1786" as="geometry" />
+        </mxCell>
+        <mxCell id="cls21" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontSize=11;fontFamily=Consolas;spacingTop=6;spacingBottom=6;strokeColor=#9673a6;fillColor=#e1d5e7;fontColor=#000000;" value="&lt;div style=&quot;text-align:center;font-weight:bold;font-size:13px;padding:0 8px;&quot;&gt;RecipeModeView&lt;/div&gt;&lt;hr size=&quot;1&quot; style=&quot;border-color:#999999;margin:4px 0;width:100%;&quot;/&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- controller : GameController&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- parent : MainMenuView&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- recipeList : JList&lt;String&gt;&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- resultLabel : JLabel&lt;/div&gt;&lt;hr size=&quot;1&quot; style=&quot;border-color:#999999;margin:4px 0;width:100%;&quot;/&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ buildUI(): void&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ display(): void&lt;/div&gt;" vertex="1">
+          <mxGeometry height="156" width="150" x="440" y="2130" as="geometry" />
+        </mxCell>
+        <mxCell id="cls22" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontSize=11;fontFamily=Consolas;spacingTop=6;spacingBottom=6;strokeColor=#9673a6;fillColor=#e1d5e7;fontColor=#000000;" value="&lt;div style=&quot;text-align:center;font-weight:bold;font-size:13px;padding:0 8px;&quot;&gt;CreativeModeView&lt;/div&gt;&lt;hr size=&quot;1&quot; style=&quot;border-color:#999999;margin:4px 0;width:100%;&quot;/&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- controller : GameController&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- parent : MainMenuView&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- baseCombo : JComboBox&lt;String&gt;&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;- fruitList : JList&lt;String&gt;&lt;/div&gt;&lt;hr size=&quot;1&quot; style=&quot;border-color:#999999;margin:4px 0;width:100%;&quot;/&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ buildUI(): void&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ handleBrew(): void&lt;/div&gt;&lt;div style=&quot;padding:0 8px;&quot;&gt;+ display(): void&lt;/div&gt;" vertex="1">
+          <mxGeometry height="172" width="150" x="730" y="2130" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" style="endArrow=none;startArrow=diamond;startFill=0;html=1;strokeColor=#333333;rounded=0;exitX=0.3;exitY=0;startSize=20;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="260" y="296" as="sourcePoint" />
+            <mxPoint x="260" y="256.24" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="cls3" style="endArrow=open;endFill=0;dashed=1;html=1;fontSize=10;strokeColor=#333333;fontColor=#333333;rounded=0;exitX=0.7;exitY=0;entryX=0.712;entryY=0.998;entryDx=0;entryDy=0;entryPerimeter=0;" target="cls2" value="creates">
+          <mxGeometry relative="1" x="-0.2618" y="-25" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="cls5" style="endArrow=none;startArrow=diamond;startFill=1;html=1;strokeColor=#333333;rounded=0;exitX=1;exitY=0.3;entryX=0;entryY=0.3;edgeStyle=orthogonalEdgeStyle;startSize=20;" target="cls6" value="has">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="cls5" style="endArrow=none;startArrow=diamond;startFill=1;html=1;strokeColor=#333333;rounded=0;exitX=0;exitY=0.5;entryX=1;entryY=0.5;edgeStyle=orthogonalEdgeStyle;startSize=20;" target="cls4" value="has">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="cls9" style="endArrow=none;startArrow=diamond;startFill=0;html=1;strokeColor=#333333;rounded=0;fontSize=10;fontColor=#333333;exitX=0;exitY=0.3;entryX=1;entryY=0.261;edgeStyle=orthogonalEdgeStyle;startSize=20;entryDx=0;entryDy=0;entryPerimeter=0;" target="cls7" value="0..*">
+          <mxGeometry relative="1" x="0.3348" y="14" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="cls8" style="endArrow=none;startArrow=diamond;startFill=0;html=1;strokeColor=#333333;rounded=0;fontSize=10;fontColor=#333333;exitX=0.5;exitY=0;entryX=0.5;entryY=1;startSize=20;" target="cls7" value="1..*">
+          <mxGeometry relative="1" x="0.1" y="-40" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" style="endArrow=none;startArrow=diamond;startFill=1;html=1;strokeColor=#333333;rounded=0;fontSize=10;fontColor=#333333;exitX=0.5;exitY=1;entryX=0.485;entryY=-0.009;entryDx=0;entryDy=0;exitDx=0;exitDy=0;startSize=20;entryPerimeter=0;" target="cls11" value="8">
+          <mxGeometry relative="1" x="0.1692" y="27" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="2172.5" y="320" as="sourcePoint" />
+            <mxPoint x="2177.5" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="cls10" style="endArrow=open;endFill=0;dashed=1;html=1;fontSize=10;strokeColor=#333333;fontColor=#666666;rounded=1;edgeStyle=orthogonalEdgeStyle;exitX=0;exitY=0.75;entryX=0.195;entryY=1.007;exitDx=0;exitDy=0;entryDx=0;entryDy=0;entryPerimeter=0;" target="cls3" value="uses">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2050.05" y="245.05" />
+              <mxPoint x="2050.05" y="626" />
+              <mxPoint x="245.1" y="626" />
+            </Array>
+            <mxPoint x="2239.97" y="245" as="sourcePoint" />
+            <mxPoint x="119.97" y="493.96" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="cls10" style="endArrow=open;endFill=0;dashed=1;html=1;fontSize=10;strokeColor=#333333;fontColor=#666666;rounded=1;edgeStyle=orthogonalEdgeStyle;exitX=-0.009;exitY=0.519;entryX=0.753;entryY=1.011;entryDx=0;entryDy=0;entryPerimeter=0;exitDx=0;exitDy=0;exitPerimeter=0;" target="cls3" value="uses">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2006.15" y="175.69" />
+              <mxPoint x="2006.15" y="636" />
+              <mxPoint x="346.15" y="636" />
+              <mxPoint x="346.15" y="500" />
+            </Array>
+            <mxPoint x="2006.13" y="240" as="sourcePoint" />
+            <mxPoint x="345.03" y="490" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e10" edge="1" parent="1" source="cls12" style="endArrow=open;endFill=0;dashed=1;html=1;fontSize=10;strokeColor=#333333;fontColor=#666666;rounded=1;edgeStyle=orthogonalEdgeStyle;exitX=1.01;exitY=0.814;entryX=0.951;entryY=0.996;entryDx=0;entryDy=0;entryPerimeter=0;exitDx=0;exitDy=0;exitPerimeter=0;" target="cls3" value="uses">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2710" y="199.1" />
+              <mxPoint x="2710" y="666" />
+              <mxPoint x="380" y="666" />
+              <mxPoint x="380" y="510" />
+              <mxPoint x="381.2" y="510" />
+            </Array>
+            <mxPoint x="2819.979999999999" y="250" as="sourcePoint" />
+            <mxPoint x="381.96000000000004" y="493.624" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e11" edge="1" parent="1" style="endArrow=open;endFill=0;dashed=1;html=1;fontSize=10;strokeColor=#333333;fontColor=#666666;rounded=1;edgeStyle=orthogonalEdgeStyle;exitX=-0.006;exitY=0.935;exitDx=0;exitDy=0;exitPerimeter=0;" value="uses">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2011.1499999999999" y="310.01" />
+              <mxPoint x="2011.1499999999999" y="685.61" />
+              <mxPoint x="811.09" y="685.61" />
+              <mxPoint x="811.09" y="522.01" />
+              <mxPoint x="810.49" y="522.01" />
+            </Array>
+            <mxPoint x="2080" y="310" as="sourcePoint" />
+            <mxPoint x="811.09" y="510" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e12" edge="1" parent="1" source="cls9" style="endArrow=open;endFill=0;dashed=1;html=1;fontSize=10;strokeColor=#333333;fontColor=#666666;rounded=1;edgeStyle=orthogonalEdgeStyle;exitX=0.439;exitY=0.997;entryX=0.909;entryY=1.005;entryDx=0;entryDy=0;entryPerimeter=0;exitDx=0;exitDy=0;exitPerimeter=0;" target="cls5" value="uses">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1800" y="239.29" />
+              <mxPoint x="1800" y="680.02" />
+              <mxPoint x="860" y="680.02" />
+            </Array>
+            <mxPoint x="880" y="510" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e13" edge="1" parent="1" source="cls12" style="endArrow=open;endFill=0;dashed=1;html=1;fontSize=10;strokeColor=#333333;fontColor=#666666;rounded=1;edgeStyle=orthogonalEdgeStyle;exitX=0.5;exitY=1;entryX=0.371;entryY=1.001;entryDx=0;entryDy=0;entryPerimeter=0;" target="cls5" value="saves/loads">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2565" y="716.06" />
+              <mxPoint x="740" y="716.06" />
+              <mxPoint x="740" y="520" />
+              <mxPoint x="741.63" y="520" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e14" edge="1" parent="1" style="endArrow=open;endFill=0;dashed=1;html=1;fontSize=10;strokeColor=#333333;fontColor=#666666;rounded=1;edgeStyle=orthogonalEdgeStyle;exitX=0.5;exitY=1;entryX=0.68;entryY=1.011;entryDx=0;entryDy=0;entryPerimeter=0;" value="saves/loads">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2596.2" y="736" />
+              <mxPoint x="1560" y="736" />
+            </Array>
+            <mxPoint x="2596.21" y="239.9999999999999" as="sourcePoint" />
+            <mxPoint x="1560.01" y="532.398" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e15" edge="1" parent="1" style="endArrow=open;endFill=1;html=1;fontSize=10;strokeColor=#333333;fontColor=#333333;rounded=1;edgeStyle=orthogonalEdgeStyle;exitX=0.0800;exitY=0;entryX=0.555;entryY=0.998;entryDx=0;entryDy=0;entryPerimeter=0;" target="cls3" value="has">
+          <mxGeometry relative="1" x="0.0054" y="-16" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="1400.3700000000001" y="776.05" />
+              <mxPoint x="309.87" y="776.05" />
+            </Array>
+            <mxPoint x="1400.3699999999997" y="866" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e16" edge="1" parent="1" source="cls13" style="endArrow=open;endFill=1;html=1;fontSize=10;strokeColor=#333333;fontColor=#333333;rounded=1;edgeStyle=orthogonalEdgeStyle;exitX=0.2480;exitY=0;entryX=0.5;entryY=1;" target="cls5" value="has">
+          <mxGeometry relative="1" x="-0.0044" y="12" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="1304.19" y="788.06" />
+              <mxPoint x="770" y="788.06" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e17" edge="1" parent="1" source="cls13" style="endArrow=open;endFill=1;html=1;fontSize=10;strokeColor=#333333;fontColor=#333333;rounded=1;edgeStyle=orthogonalEdgeStyle;exitX=0.4160;exitY=0;entryX=0.184;entryY=1.009;entryDx=0;entryDy=0;entryPerimeter=0;" target="cls8" value="has">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1368.11" y="800.02" />
+              <mxPoint x="1449.4" y="800.02" />
+            </Array>
+            <mxPoint x="1450" y="540" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e18" edge="1" parent="1" source="cls13" style="endArrow=open;endFill=1;html=1;fontSize=10;strokeColor=#333333;fontColor=#333333;rounded=1;edgeStyle=orthogonalEdgeStyle;exitX=0.5840;exitY=0;" value="has">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1431.92" y="812.02" />
+              <mxPoint x="1910" y="812.02" />
+              <mxPoint x="1910" y="239.08" />
+            </Array>
+            <mxPoint x="1910.01" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e19" edge="1" parent="1" source="cls13" style="endArrow=open;endFill=1;html=1;fontSize=10;strokeColor=#333333;fontColor=#333333;rounded=1;edgeStyle=orthogonalEdgeStyle;exitX=0.7520;exitY=0;entryX=1.004;entryY=0.863;entryDx=0;entryDy=0;entryPerimeter=0;" target="cls10" value="has">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1495.82" y="824.09" />
+              <mxPoint x="2460" y="824.09" />
+              <mxPoint x="2460" y="280" />
+              <mxPoint x="2430" y="280" />
+              <mxPoint x="2430" y="278.91" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e20" edge="1" parent="1" source="cls13" style="endArrow=open;endFill=1;html=1;fontSize=10;strokeColor=#333333;fontColor=#333333;rounded=1;edgeStyle=orthogonalEdgeStyle;entryX=0.811;entryY=1.011;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.944;exitY=-0.002;exitDx=0;exitDy=0;exitPerimeter=0;" target="cls12" value="has">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1570" y="865" />
+              <mxPoint x="1570" y="846.01" />
+              <mxPoint x="2630.39" y="846.01" />
+              <mxPoint x="2630.39" y="270.01" />
+              <mxPoint x="2630" y="270.01" />
+              <mxPoint x="2630" y="250.01" />
+              <mxPoint x="2630.31" y="250.01" />
+            </Array>
+            <mxPoint x="1570" y="860" as="sourcePoint" />
+            <mxPoint x="2627.9" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e21" edge="1" parent="1" source="cls13" style="endArrow=none;startArrow=diamondThin;startFill=1;html=1;strokeColor=#333333;rounded=1;edgeStyle=orthogonalEdgeStyle;exitX=0.5;exitY=1;entryX=0.5;entryY=0;fontSize=10;fontColor=#333333;" target="cls15" value="has">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e22" edge="1" parent="1" source="cls13" style="endArrow=open;endFill=0;dashed=1;html=1;fontSize=10;strokeColor=#333333;fontColor=#333333;rounded=1;edgeStyle=orthogonalEdgeStyle;exitX=0.367;exitY=1.006;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.532;entryY=-0.002;entryDx=0;entryDy=0;entryPerimeter=0;" target="cls14" value="creates">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1349.5" y="1340" />
+              <mxPoint x="1350.06" y="1340" />
+              <mxPoint x="1350.06" y="1370" />
+              <mxPoint x="519.8" y="1370" />
+            </Array>
+            <mxPoint x="520" y="1440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e23" edge="1" parent="1" source="cls15" style="endArrow=open;endFill=0;dashed=1;html=1;fontSize=10;strokeColor=#333333;fontColor=#333333;rounded=1;edgeStyle=orthogonalEdgeStyle;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="cls16" value="creates">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e24" edge="1" parent="1" source="cls15" style="endArrow=open;endFill=0;dashed=1;html=1;fontSize=10;strokeColor=#333333;fontColor=#333333;rounded=1;edgeStyle=orthogonalEdgeStyle;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="cls18" value="creates">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e25" edge="1" parent="1" source="cls15" style="endArrow=open;endFill=0;dashed=1;html=1;fontSize=10;strokeColor=#333333;fontColor=#333333;rounded=1;edgeStyle=orthogonalEdgeStyle;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="cls19" value="creates">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e26" edge="1" parent="1" source="cls15" style="endArrow=open;endFill=0;dashed=1;html=1;fontSize=10;strokeColor=#333333;fontColor=#333333;rounded=1;edgeStyle=orthogonalEdgeStyle;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="cls17" value="creates">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e27" edge="1" parent="1" source="cls15" style="endArrow=open;endFill=0;dashed=1;html=1;fontSize=10;strokeColor=#333333;fontColor=#333333;rounded=1;edgeStyle=orthogonalEdgeStyle;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="cls20" value="creates">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e28" edge="1" parent="1" source="cls16" style="endArrow=open;endFill=0;dashed=1;html=1;fontSize=10;strokeColor=#333333;fontColor=#333333;rounded=1;edgeStyle=orthogonalEdgeStyle;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="cls21" value="creates">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e29" edge="1" parent="1" source="cls16" style="endArrow=open;endFill=0;dashed=1;html=1;fontSize=10;strokeColor=#333333;fontColor=#333333;rounded=1;edgeStyle=orthogonalEdgeStyle;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="cls22" value="creates">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
