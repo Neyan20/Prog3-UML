@@ -11,10 +11,13 @@ deadline : **August 3; 7:30 AM (Monday)**
 
 7/30 - Uploaded GameController, OpeningView, MainMenuView, MarketView, CreativeModeView
 
-to-do: 
-- BlessCauldronView, BrewView, InventoryView, RecipeModeView, SpellbookView
+8/2 - Finalized UML done
 
-- finalize uml diagram
+to-do: 
+
+- test script
+
+- javadoc
 
 - Sign-up for a demo schedule
 
