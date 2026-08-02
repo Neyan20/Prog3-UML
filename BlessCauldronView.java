@@ -29,7 +29,7 @@ public class BlessCauldronView extends JDialog{
         JPanel centerPanel = new JPanel(new GridLayout(3, 1, 5, 5));
         Player player = controller.getPlayer();
 
-        infoLabel =new JLabel("Damaged Cauldrons" + player.getDamagedCauldronCount(), SwingConstants.CENTER);
+        infoLabel =new JLabel("Damaged Cauldrons: " + player.getDamagedCauldronCount(), SwingConstants.CENTER);
         JLabel costLabel = new JLabel("Blessing cost: " + controller.getBlessCost() + " Crystals", SwingConstants.CENTER);
         statusLabel = new JLabel(" ", SwingConstants.CENTER);
 
@@ -44,7 +44,7 @@ public class BlessCauldronView extends JDialog{
 
         btnPanel.add(blessBtn);
         btnPanel.add(backBtn);
-        panel.add(btnPanel, BorderLayout.CENTER);
+        panel.add(btnPanel, BorderLayout.SOUTH);
 
         add(panel);
 
