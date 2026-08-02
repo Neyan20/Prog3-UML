@@ -17,8 +17,6 @@ to-do:
 
 - test script
 
-- generate javadoc
-
 - Sign-up for a demo schedule
 
 **DELIVERABLES**
@@ -27,7 +25,7 @@ to-do:
 
 - UML Diagram as a pdf (done)
 
-- generated javadoc (in progress)
+- generated javadoc (done)
 
 - declaration of og work (done)
 
