@@ -11,15 +11,27 @@ deadline : **August 3; 7:30 AM (Monday)**
 
 7/30 - Uploaded GameController, OpeningView, MainMenuView, MarketView, CreativeModeView
 
-8/2 - Finalized UML done
+8/2 - Finalized UML done, bug fix on BlessCauldronView
 
 to-do: 
 
 - test script
 
-- javadoc
+- generate javadoc
 
 - Sign-up for a demo schedule
+
+**DELIVERABLES**
+
+- source code (done)
+
+- UML Diagram as a pdf (done)
+
+- generated javadoc (in progress)
+
+- declaration of og work (done)
+
+- test script (in progress)
 
 
 Reminder:
